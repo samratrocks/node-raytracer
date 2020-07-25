@@ -24,7 +24,7 @@ class Tuple {
         );
     }
 
-    negation() {
+    negate() {
         return new Tuple(
             -this.x,
             -this.y,

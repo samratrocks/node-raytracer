@@ -37,18 +37,43 @@ function testVectorAndPointEquality() {
 
 // Operation tests
 function testAddition() {
-    const p = new Tuple.Point(4, -4, 3);
-    const t = new Tuple.Tuple(0, 0, 1, 0);
-    const test = Tuple.createTuple(4, -4, 4, 1);
-    assert(p.add(t).equals(test));
+    const a1 = Tuple.createTuple(3, -2, 5, 1);
+    const a2 = Tuple.createTuple(-2, 3, 1, 0);
+    const testTuple = Tuple.createTuple(1, 1, 6, 1);
+    assert(a1.add(a2).equals(testTuple));
 }
 
 function testSubtraction() {
+    // Subtracting two points
+    const p1 = new Tuple.Point(3, 2, 1);
+    const p2 =  new Tuple.Point(5, 6, 7);
+    const testVector = new Tuple.Vector(-2, -4, -6);
+    assert(p1.subtract(p2).equals(testVector));
 
+    // Subtracting a vector from a point
+    const p = new Tuple.Point(3, 2, 1);
+    const v = new Tuple.Vector(5, 6, 7);
+    const testPoint = new Tuple.Point(-2, -4, -6);
+    assert(p.subtract(v).equals(testPoint));
+
+    // Subtracting two vectors
+    const v1 = new Tuple.Vector(3, 2, 1);
+    const v2 = new Tuple.Vector(5, 6, 7);
+    const testVector2 = new Tuple.Vector(-2, -4, -6);
+    assert(v1.subtract(v2).equals(testVector2));
 }
 
 function testNegation() {
+    // Subtracting a vector from a zero vector
+    const zero = new Tuple.Vector(0, 0, 0);
+    const v = new Tuple.Vector(1, -2, 3);
+    const testVector = new Tuple.Vector(-1, 2, -3);
+    assert(zero.subtract(v).equals(testVector));
 
+    // Negating a tuple
+    const a = new Tuple.Tuple(1, -2, 3, -4);
+    const t = new Tuple.Tuple(-1, 2, -3, 4);
+    assert(a.negate().equals(t));
 }
 
 function testScalarMultiplication() {
